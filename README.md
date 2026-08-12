@@ -80,11 +80,29 @@ revenue questions have realistic nuance.
 
 ```bash
 bun install
+copy .env.example .env
 bun run dev
 ```
 
 The app expects `LOVABLE_API_KEY` (AI Gateway) and the Supabase/Lovable Cloud environment
 variables, both provisioned automatically by Lovable.
+
+For local Supabase configuration, copy `.env.example` to `.env` and fill in the project values.
+The real `.env` is ignored by Git and must never be committed.
+
+## Repository layout
+
+The source is organized by responsibility:
+
+- `src/components/chat` — conversation UI and tool rendering.
+- `src/components/data` — charts, schema, SQL results, Mermaid diagrams, and insights.
+- `src/components/ai-elements` — reusable AI interaction primitives.
+- `src/integrations/supabase` — Supabase clients and authentication integration.
+- `src/lib` — server-side AI gateway, database access, and shared utilities.
+- `src/routes` — TanStack Start pages and the streaming chat API.
+- `supabase/migrations` — versioned database migrations.
+
+See [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) for the complete project map and contribution boundaries.
 
 ## Model
 
